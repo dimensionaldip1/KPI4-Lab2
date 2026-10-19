@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic UI Elements</title>
+    <link rel="stylesheet" href="Lab2.css">
+</head>
+<body>
+
+    <h1>Core UI Elements and Their Purpose</h1>
+
+    <div class="ui-grid">
+
+        <div class="card">
+            <h2>1. Radiobutton</h2>
+            <div class="demo">
+                <label><input type="radio" name="plan" value="free" checked> Free Plan</label><br>
+                <label><input type="radio" name="plan" value="pro"> Premium Plan</label>
+            </div>
+            <p class="description">
+                <strong>Purpose:</strong> Allows the user to select only one option from a group choices.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>2. Checkbox</h2>
+            <div class="demo">
+                <label><input type="checkbox" checked> Accept terms and conditions</label><br>
+                <label><input type="checkbox"> Subscribe to newsletter</label>
+            </div>
+            <p class="description">
+                <strong>Purpose:</strong> Used to select one or multiple options.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>3. Text Input</h2>
+            <div class="demo">
+                <input type="text" placeholder="Enter your name...">
+            </div>
+            <p class="description">
+                <strong>Purpose:</strong> Allows the user to input a single line of text.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>4. Tabs</h2>
+            <div class="demo">
+                <div class="tabs">
+                    <button class="tab-btn active" onclick="switchTab(event, 'tab1')">Tab 1</button>
+                    <button class="tab-btn" onclick="switchTab(event, 'tab2')">Tab 2</button>
+                </div>
+                <div id="tab1" class="tab-content active">Content for Tab 1</div>
+                <div id="tab2" class="tab-content">Content for Tab 2</div>
+            </div>
+            <p class="description">
+                <strong>Purpose:</strong> Organizes content into logical groups within the same view to save screen space.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>5. Button</h2>
+            <div class="demo">
+                <button type="button" class="btn" onclick="alert('Button clicked!')">Click Me</button>
+            </div>
+            <p class="description">
+                <strong>Purpose:</strong> Triggers an immediate action or event.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>6. Text Label</h2>
+            <div class="demo">
+                <label for="username">Username:</label>
+                <input type="text" id="username" placeholder="user123">
+            </div>
+            <p class="description">
+                <strong>Purpose:</strong> Displays read-only text.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>7. Link</h2>
+            <div class="demo">
+                <a href="https://google.com" target="_blank" rel="noopener noreferrer">Go to Google</a>
+            </div>
+            <p class="description">
+                <strong>Purpose:</strong> Enables navigation to another web page, an external resource, or a specific section within the page.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>8. Tooltip</h2>
+            <div class="demo">
+                <span class="tooltip-container">
+                    Hover over me!
+                    <span class="tooltip-text">Contextual tip</span>
+                </span>
+            </div>
+            <p class="description">
+                <strong>Purpose:</strong> Displayscontextual information when the user hovers over an element.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>9. Dropdown List</h2>
+            <div class="demo">
+                <select>
+                    <option value="">-- Select a country --</option>
+                    <option value="us">United States</option>
+                    <option value="uk">United Kingdom</option>
+                    <option value="ua">Ukraine</option>
+                </select>
+            </div>
+            <p class="description">
+                <strong>Purpose:</strong> Allows selecting a single item from a collapsible list to save vertical layout space.
+            </p>
+        </div>
+
+        <div class="card wide">
+            <h2>10. Data Grid</h2>
+            <div class="demo">
+                <table class="data-grid">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Role</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Alex</td>
+                            <td>Admin</td>
+                            <td>Active</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Maria</td>
+                            <td>Editor</td>
+                            <td>Pending</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="description">
+                <strong>Purpose:</strong> Displays structured data organized into rows and columns for easy viewing, comparison, and analysis etc.
+            </p>
+        </div>
+
+    </div>
+
+    <script>
+        function switchTab(event, tabId) {
+            const card = event.target.closest('.card');
+            card.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            card.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+            
+            event.target.classList.add('active');
+            card.querySelector('#' + tabId).classList.add('active');
+        }
+    </script>
+</body>
+</html>
